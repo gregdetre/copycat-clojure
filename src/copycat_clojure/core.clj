@@ -1,6 +1,6 @@
 (ns copycat-clojure.core
-  (:use [copycat-clojure.formulas :only [blah]]
-  ))
+  ;; (:use [copycat-clojure.formulas :only [blah]]
+  (:use [copycat-clojure.formulas]))
 
 ;; e.g.
 ;; (ns examples.ns
@@ -28,5 +28,6 @@
 (defn -main
   "Application entry point"
   [& args]
-  (println (blah 1 2))
+  ;; (println (blah 1 2))
+  (println "main")
   )

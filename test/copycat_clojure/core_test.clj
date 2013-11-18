@@ -1,6 +1,6 @@
 (ns copycat-clojure.core-test
-  (:require [clojure.test :refer :all]
-            [copycat-clojure.core :refer :all]))
+  (:use [clojure.test]
+        [copycat-clojure.core]))
 
 ;; (load "formulas_test")
 
