@@ -2,6 +2,13 @@
   (:require [clojure.test :refer :all]
             [copycat-clojure.core :refer :all]))
 
+;; run with 'lein test'
+
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing
+   "Should pass"
+   (is (= 1 1))
+   (is (= 0 0))
+   )
+  )
+
