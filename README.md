@@ -1,14 +1,14 @@
 # copycat-clojure
 
-A Clojure library designed to ... well, that part is up to you.
+A port of Melanie Mitchell's Copycat model to Clojure. See:
 
-## Usage
+* Melanie Mitchell's [original lisp code](http://web.cecs.pdx.edu/~mm/how-to-get-copycat.html) (in an obsolete Lucid/Sun Common Lisp using [flavors](https://groups.google.com/forum/#!topic/comp.lang.lisp/g8-Xb_ko_YA) for OO)
 
-FIXME
+* [Python port](https://github.com/jtauber/co.py.cat) - this probably has the cleanest code, but no graphics.
+
+* [Java port](http://itee.uq.edu.au/~scottb/Copycat.html) - this actually runs faithfully with all the graphics, in the browser!
+
 
 ## License
 
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the MIT License. Copyright © 2013 Greg Detre - see LICENSE
