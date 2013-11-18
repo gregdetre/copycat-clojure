@@ -16,11 +16,18 @@
 ;; (in-ns copycat-clojure.core)
 
 
+(load "formulas")
 ;; (load "my_utils")
 ;; (load "run")
-;; ;; (load "lucid-util")
-;; ;; (load "lucid-util")
-;; ;; (load "workspace-structures")
+;; (load "lucid-util")
+;; (load "lucid-util")
+;; (load "workspace-structures")
 
 
 
+
+(defn -main
+  "Application entry point"
+  [& args]
+  (println (blah 1 2))
+  )

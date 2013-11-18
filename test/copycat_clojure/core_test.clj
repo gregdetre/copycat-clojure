@@ -8,7 +8,7 @@
   (testing
    "Should pass"
    (is (= 1 1))
-   (is (= 0 0))
+   ;; (is false)
    )
   )
 
