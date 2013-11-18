@@ -1,4 +1,6 @@
-(in-ns 'copycat-clojure.core)
+(ns copycat-clojure.formulas
+  )
+;; (in-ns 'copycat-clojure.core)
 
 (defn blah [a b] (+ a b))
 

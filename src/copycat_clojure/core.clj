@@ -1,5 +1,6 @@
 (ns copycat-clojure.core
-  )
+  (:use [copycat-clojure.formulas :only [blah]]
+  ))
 
 ;; e.g.
 ;; (ns examples.ns
@@ -16,14 +17,12 @@
 ;; (in-ns copycat-clojure.core)
 
 
-(load "formulas")
+;; (load "formulas")
 ;; (load "my_utils")
 ;; (load "run")
 ;; (load "lucid-util")
 ;; (load "lucid-util")
 ;; (load "workspace-structures")
-
-
 
 
 (defn -main
