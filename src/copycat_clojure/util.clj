@@ -65,5 +65,23 @@ an order of magnitude, set TOL to 10."
                  (inc index)))))))
 
 
+(defn average [v]
+  (/ (apply + v) (count v)))
 
+
+(defn weighted-average [value-weights]
+  {:pre [(all (map (comp pos? second) value-weights))]}
+  ;; this is truer to the python version
+  ;; (if (some (comp pos? second) value-weights), else 0.0)
+  (if (seq value-weights)
+    (loop [vw value-weights
+           total 0.0
+           total-weights 0.0]
+      (if (seq vw)
+        (let [[value weight] (first vw)]
+          (recur (rest vw)
+                 (+ total (* value weight))
+                 (+ total-weights weight)))
+        (/ total total-weights)))
+    0.0))
 

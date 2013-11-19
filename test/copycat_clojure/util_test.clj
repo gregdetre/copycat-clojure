@@ -56,3 +56,29 @@
    )
 
      
+(deftest test-weighted-average
+  (testing "empty"
+           (is (= (weighted-average nil)
+                  0.0))
+           (is (= (weighted-average [])
+                  0.0))
+           )
+  (testing "basic"
+           (is (= (weighted-average [[10 1]])
+                  10.0))
+           (is (= (weighted-average [[10 0.5] [20 0.5]])
+                  15.0))
+           )
+  (testing "different weights"
+           (is (= (weighted-average [[10 0.2] [20 0.8]])
+                  (average [10.0 20 20 20 20])))
+           (is (= (weighted-average [[10 0.2] [20 0.8]])
+                  (average [10.0 20 20 20 20])))
+           (is (= (weighted-average [[10 2] [20 8]])
+                  (weighted-average [[10 0.2] [20 0.8]])))
+           )
+  (testing "invalid input"
+           (is (thrown? AssertionError (weighted-average [[10 0]])))
+           (is (thrown? AssertionError (weighted-average [[10 -1]])))
+           )
+  )
