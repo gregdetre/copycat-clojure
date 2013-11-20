@@ -15,8 +15,19 @@
            (is (=ish 1 0.6 2))
            (is (not (=ish 1 3 2)))
            (is (not (=ish 1 0.4 2)))
-           ))
-
+           )
+  (testing "assert"
+           (is (=ish 1 1 nil)) ;; (nil? TOL) is fine
+           (is (thrown? (=ish 1 1 0))) ;; but TOL can't be 0
+           (is (thrown? (=ish 1 1 -1))) ;; or negative
+           )
+  (testing "zero input"
+           (is (=ish 0 0))
+           (is (=ish 0 0.0))
+           (is (not (=ish 0 1)))
+           (is (not (=ish 1 0)))
+  ))
+  
 
 (deftest test-all
   (testing "basic all"

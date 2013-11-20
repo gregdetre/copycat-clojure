@@ -45,16 +45,21 @@ See also PROPORTIONS-MAP.
 
 
 (defn =ish [x y & [tol]]
+  {:pre [(or (nil? tol) (pos? tol))]}
   "Whether (1/TOL < X/Y TOL), i.e. are X and Y fairly close
 to one another. Set TOL to be closer to 1 if you want them
 to be really similar. If you're happy for them to be within
 an order of magnitude, set TOL to 10."
-  (let [tol (or tol 1.1)
-        tol (if (> tol 1) tol (/ 1 tol))
-        div (/ x y)
-        div (if (> div 1) div (/ 1 div))
-        ]
-    (< (/ 1 tol) div tol)))
+  ;; special case for input of 0. if both are 0, we're fine,
+  ;; otherwise raise DivideByZero
+  (if (and (zero? 0) (zero? 0))
+    true
+    (let [tol (or tol 1.1)
+          tol (if (> tol 1) tol (/ 1 tol))
+          div (/ x y)
+          div (if (> div 1) div (/ 1 div))
+          ]
+      (< (/ 1 tol) div tol))))
 
 
 (defn all [lst]
