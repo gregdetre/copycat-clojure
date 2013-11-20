@@ -6,6 +6,7 @@
 
 
 (defn update-temperature [ws rule & rule-weakness]
+  1/0 ;; untested
   (let [rule (:rule ws)
         clamp-temperature (:clamp-temperature ws)
         total-unhappiness (:total-strength ws)]
