@@ -58,7 +58,7 @@
     (let [desired-propns [0.8 0.1 0.1]
           howmany 100000
           actual-val-propns (proportions-vec
-                             (run-often select-list-position howmany desired-propns))
+                             (run-often howmany select-list-position desired-propns))
           actual-propns (map second actual-val-propns)
           ]
       (is (all (map (fn [[x y]] (=ish x y 1.2))
@@ -116,7 +116,7 @@
 (deftest test-coin-flip
   (defn test-for-chance [chance]
     (let [howmany 10000]
-      (is (=ish (:true (proportions-map (run-often coin-flip howmany chance)))
+      (is (=ish (:true (proportions-map (run-often howmany coin-flip chance)))
                 chance))))
   (testing "basic"
            (test-for-chance 0.5)

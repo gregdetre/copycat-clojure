@@ -2,7 +2,7 @@
   )
 
 
-(defn run-often [f n & args]
+(defn run-often [n f & args]
   "For testing non-determinstic functions, runs (apply F
   ARGS) N times, so that you can build up statistics, e.g.
       (run-often select-list-position 3 [1 2 3])."
@@ -24,7 +24,7 @@
 by running FREQUENCIES on vector V.
 
 e.g.
-  (proportions-vec (run-often select-list-position 100000 [0.1 0.1 0.8]))
+  (proportions-vec (run-often 10000 select-list-position [0.1 0.1 0.8]))
   => ([2 0.79958] [1 0.10095] [0 0.09947])
 
 See also PROPORTIONS-MAP.
