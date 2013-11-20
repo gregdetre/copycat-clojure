@@ -1,8 +1,7 @@
 (ns copycat-clojure.formulas
-  )
-
-(declare weighted-average)
-(declare fake-reciprocal)
+  (:use [copycat-clojure.util]
+        [copycat-clojure.constants]
+        ))
 
 
 (defn update-temperature [ws rule & rule-weakness]
