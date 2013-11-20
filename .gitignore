@@ -11,3 +11,4 @@ pom.xml.asc
 # original Melanie Mitchell lisp files
 *.l
 
+obsolete/
