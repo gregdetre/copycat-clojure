@@ -43,10 +43,10 @@
    (is (= (select-list-position [])
           nil)))
    (testing
-    "select-list-position proportions"
+    "select-list-position proportions-vec"
     (let [desired-propns [0.8 0.1 0.1]
           howmany 100000
-          actual-val-propns (proportions
+          actual-val-propns (proportions-vec
                              (run-often select-list-position howmany desired-propns))
           actual-propns (map second actual-val-propns)
           ]

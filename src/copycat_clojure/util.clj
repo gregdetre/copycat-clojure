@@ -19,19 +19,29 @@
   (reverse (apply sort-by args)))
 
 
-(defn proportions [v]
-  "Returns hashmap {val: proportion}, ordered by proportion,
+(defn proportions-vec [v]
+  "Returns vector of pairs [[val_n proportion_n] ...] ordered by proportion,
 by running FREQUENCIES on vector V.
 
 e.g.
-  (proportions (run-often select-list-position 100000 [0.1 0.1 0.8]))
+  (proportions-vec (run-often select-list-position 100000 [0.1 0.1 0.8]))
   => ([2 0.79958] [1 0.10095] [0 0.09947])
+
+See also PROPORTIONS-MAP.
 "
   (let [howmany (count v)]
     (->> v
          frequencies
          (map (fn [[val count]] [val (proportion count howmany)]))
          (rsort-by second))))
+
+
+(defn proportions-map [v]
+  "Like PROPORTIONS_VEC but returns a hash-map {:val1
+  proportion1 :val2 proportion ...}"
+  (->> (map (fn [[k v]] [(-> k str keyword) v]) (proportions-vec v))
+       flatten
+       (apply hash-map)))
 
 
 (defn =ish [x y & [tol]]
