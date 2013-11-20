@@ -100,3 +100,10 @@ an order of magnitude, set TOL to 10."
         (/ total total-weights)))
     0.0))
 
+
+(defn temperature-adjusted-value [temperature x]
+  (Math/pow x
+            (+ 0.5
+               (/ (- 100.0 temperature)
+                  30.0))))
+
