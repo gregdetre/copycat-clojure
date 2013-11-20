@@ -152,6 +152,7 @@ uniform distribution between 90-110.
 
 N.B. The java and python implementations are wrong - they
 just return +/- sqrt(x)."
+  ;; xxx MM added 1 to blur, and rounded
   (let [root (Math/sqrt x)
         rand-root (rand root)]
     ((rand-nth [+ -]) x rand-root)))
