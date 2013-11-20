@@ -119,3 +119,8 @@ just return +/- sqrt(x)."
         rand-root (rand root)]
     ((rand-nth [+ -]) x rand-root)))
 
+
+
+(defn fake-reciprocal [n]
+  (- 100 n))
+
