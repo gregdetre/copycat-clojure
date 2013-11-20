@@ -2,6 +2,10 @@
   )
 
 
+(defn sum [args]
+  (apply + args))
+
+
 (defn run-often [n f & args]
   "For testing non-determinstic functions, runs (apply F
   ARGS) N times, so that you can build up statistics, e.g.
