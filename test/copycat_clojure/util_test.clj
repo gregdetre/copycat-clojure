@@ -111,3 +111,24 @@
            (is (=ish (temperature-adjusted-probability 50 20) 19.414213562373096 1.000001))
            (is (=ish (temperature-adjusted-probability 50 0.1) 0.12636038969321073 1.000001))
            ))
+
+
+(deftest test-coin-flip
+  (defn test-for-chance [chance]
+    (let [howmany 10000]
+      (is (=ish (:true (proportions-map (run-often coin-flip howmany chance)))
+                chance))))
+  (testing "basic"
+           (test-for-chance 0.5)
+           (test-for-chance 0.1)
+           (test-for-chance 0.7)
+           )
+  (testing "exceptions"
+           (is (thrown? AssertionError (coin-flip 0)))
+           (is (thrown? AssertionError (coin-flip 1)))
+           (is (thrown? AssertionError (coin-flip 2)))
+           (is (thrown? AssertionError (coin-flip -1)))
+           )
+  )
+
+

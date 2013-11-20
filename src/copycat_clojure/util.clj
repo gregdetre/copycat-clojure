@@ -138,3 +138,10 @@ an order of magnitude, set TOL to 10."
                     ]
                 (max f 0.5))))
 
+
+(defn coin-flip
+  ([] (coin-flip 0.5))
+  ([chance] {:pre [(number? chance)
+                   (< 0 chance 1)]}
+     (< (rand) chance)))
+
