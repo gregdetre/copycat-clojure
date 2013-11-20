@@ -18,6 +18,28 @@
                         100)])))
 
 
+(defn get-answer-temperature-threshold-distribution [ws]
+  ;; untested
+  1/0
+  (let [bond-density (if (and (= (-> ws :initial-string :length) 1)
+                              (= (-> ws :target-string :length) 1))
+                       1
+                       (/ (count (concat (-> ws :initial-string :bond-list) 
+                                         (-> ws :target-string :bond-list)))
+                          (+ (- 1 (-> ws :initial-string :length))
+                             (- 1 (-> ws :target-string :length)))))
+        ]
+    (cond ((>= bond-density 0.8)
+           %very-low-answer-temperature-threshold-distribution%)
+          ((>= bond-density 0.6) 
+           %low-answer-temperature-threshold-distribution%)
+          ((>= bond-density 0.4) 
+           %medium-answer-temperature-threshold-distribution%)
+          ((>= bond-density 0.2) 
+           %high-answer-temperature-threshold-distribution%)
+          :else %very-high-answer-temperature-threshold-distribution%)))
+
+
 (defn temperature-adjusted-value [temperature x]
   (Math/pow x
             (+ 0.5
