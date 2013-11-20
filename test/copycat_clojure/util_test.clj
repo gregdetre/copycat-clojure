@@ -132,3 +132,11 @@
   )
 
 
+(deftest test-blur
+  (testing
+   (let [howmany 10000
+         x 100]
+     (every? #(< 90 % 110) (run-often howmany blur x))
+     (is (=ish (average (run-often howmany blur x))
+               x)))))
+

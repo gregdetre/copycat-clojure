@@ -145,3 +145,14 @@ an order of magnitude, set TOL to 10."
                    (< 0 chance 1)]}
      (< (rand) chance)))
 
+
+(defn blur [x]
+  "Return a number within (sqrt x) of X, e.g. for x = 100,
+uniform distribution between 90-110.
+
+N.B. The java and python implementations are wrong - they
+just return +/- sqrt(x)."
+  (let [root (Math/sqrt x)
+        rand-root (rand root)]
+    ((rand-nth [+ -]) x rand-root)))
+
